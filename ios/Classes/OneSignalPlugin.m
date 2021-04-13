@@ -77,6 +77,7 @@
 #pragma mark FlutterPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
 
+    [OneSignal initWithLaunchOptions:nil];
     [OneSignal setMSDKType:@"flutter"];
 
     // Wrapper SDK's call init with no app ID early on in the
@@ -153,7 +154,6 @@
          [self handleInAppMessageClicked:action];
      }];
     
-    [OneSignal initWithLaunchOptions:nil];
     [OneSignal setAppId:call.arguments[@"appId"]];
 
     // If the user has required privacy consent, the SDK will not
